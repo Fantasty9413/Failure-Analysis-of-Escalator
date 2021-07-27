@@ -25,6 +25,8 @@ signal.TD.data = data(1:signal.TD.L)';
 [ pv_max, t_max, pv_min, t_min ] = TV_pv(signal.TD);
 signal.TV.pv = [ pv_max, t_max, pv_min, t_min ];
 
+signal.TV.kv = TV_kv(signal.TD);
+
 signal.TV.ppv = TV_ppv(signal.TD);
 
 basic_frequency = signal.escalator.frequence.f_motor;
