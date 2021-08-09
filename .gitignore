@@ -3,3 +3,8 @@ Data/
 Figure/
 *.pdf
 /By_Hilberts/*.p
+
+# file of C#
+bin/
+obj/
+*.sln
