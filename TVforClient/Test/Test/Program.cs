@@ -2,13 +2,14 @@
 using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using mtest;
+using TypicalValue;
 
 namespace Singal
 {
     class signal
     {
-        private int Length;
-        private double Fs;
+        public int Length;
+        public double Fs;
         public double[] time;
         public double[] amplitude;
         public signal()
@@ -58,11 +59,28 @@ namespace Test
             Class1 c = new Class1();
             double ans = new double();
             MWNumericArray time = new MWNumericArray(1, 8000, s1.time);
-            MWNumericArray amplitude = new MWNumericArray(1, 8000, s1.time);
+            MWNumericArray amplitude = new MWNumericArray(1, 8000, s1.amplitude);
+            MWNumericArray Fs = new MWNumericArray(s1.Fs);
             MWArray result;
             result = c.mtest(time, amplitude);
             Console.WriteLine("the result is " + result.ToString());
+
+            Class2 c2 = new Class2();
+            MWArray FD_fre, FD_amp;
+            MWArray[] result2;
+            MWNumericArray[] result3;
+            result2 = c2.fft_ss(2, amplitude, Fs);
+            // result3 = (MWNumericArray[])(c2.fft_ss(2, amplitude, Fs));
+            FD_amp = result2[0];
+            FD_fre = result2[1];
+            Console.WriteLine(FD_amp.ToString());
+            // Console.WriteLine(result3.ToString());
+            // Console.WriteLine("the result is " + FD_amp.ToString());
+            // Console.WriteLine("the result is " + FD_fre.ToString());
             //s1.displaydata();
+
+            Array a1;
+            a1 = ((MWNumericArray)(FD_amp)).ToVector(MWArrayComponent.Real);
         }
     }
 }
