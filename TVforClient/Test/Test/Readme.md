@@ -62,3 +62,19 @@ Array a1;
 a1 = MWNumericArray)(FD_amp)).ToVector(MWArrayComponent.Real);
 ```
 
+
+
+## TV function接口更改
+
+更改function接口，适配deploytool转换后C#的编程实现。
+
+|                  原接口                   |                 功能                 |                        更改后的接口                        |                          说明与备注                          |
+| :---------------------------------------: | :----------------------------------: | :--------------------------------------------------------: | :----------------------------------------------------------: |
+|         `[ tfv ] = TV_tfv( FD )`          |              获取通频值              |                `[ tfv ] = TV_tfv( FD_amp )`                |                     FD_amp为FD数据的幅值                     |
+|    `[ pv, f ] = TV_pvifds( FD, fds )`     | 获取高中低频段的信号峰值和对应的频率 |   `[ pvifds_amp, pvifds_f ] = TV_pvifds( FD_amp, FD_f )`   | 由原来的选取低中高频段来获取参数改为一次性全部获取。pvifds_amp分别为低中高段的峰值，pvifds_f 分别为对应的频率值。 |
+|          `[ kv ] = TV_kv( TD )`           |     获取时域波形峰度（即陡峭度）     |                 `[ kv ] = TV_kv( TD_amp )`                 |                                                              |
+| `[pv_max,t_max,pv_min,t_min] = TV_pv(TD)` |    获取时域信号的峰值及其对应时间    | `[ pv_max, t_max, pv_min, t_min ] = TV_pv( TD_amp, TD_t )` |                                                              |
+|         `[ ppv ] = TV_ppv( TD )`          |         获取时域信号的峰峰值         |             `[ ppv ] = TV_ppv( TD_amp, TD_t )`             |                                                              |
+|      `[ Nbf ] = TV_Nbf( FD, bf, N )`      |    获取1至N倍基频时的倍频信号幅值    |         `[ Nbf_amp ] = TV_Nbf( FD_amp, FD_f, bf)`          | 输入bf为基频值(basic frequency)。更改后输出Nbf只有幅值没有频率值了。 |
+|   `[ amplitude, f ] = fft_ss( y, Fs )`    |  获取时域信号单边fft变换的频域信号   |            `[ amplitude, f ] = fft_ss( y, Fs )`            |                       输入Fs为采样频率                       |
+

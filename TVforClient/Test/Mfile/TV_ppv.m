@@ -6,7 +6,7 @@ function [ ppv ] = TV_ppv( TD_amp, TD_t )
 %   Outputs:
 %       ppv: peak-to-peak value
 
-[ pv_max, t_max, pv_min, t_min ] = TV_pv( TD_amp, TD_t )
+[ pv_max, t_max, pv_min, t_min ] = TV_pv( TD_amp, TD_t );
 ppv = pv_max - pv_min;
 
 end
