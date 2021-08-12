@@ -64,6 +64,12 @@ a1 = MWNumericArray)(FD_amp)).ToVector(MWArrayComponent.Real);
 
 
 
+* `MWNumericArray`的数据可以调用自带的数据转换方法。其中`data.ToVector()`是直接转换成double型的array（不是[]数组，如果是要得到[]数组，还需要再强制转换一次），`data.ToScalarxxx()`是转换成xxx类型的标量（单个）数据。
+
+  **采用的转换方法**：`data.ToVector`得到array或者[]数组。
+
+
+
 ## TV function接口更改
 
 更改function接口，适配deploytool转换后C#的编程实现。

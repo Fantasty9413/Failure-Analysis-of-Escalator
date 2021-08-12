@@ -138,6 +138,34 @@ namespace Test
             MWNumericArray bf = 20;
             Nbf = (MWNumericArray)tv.TV_Nbf(FD_amp, FD_f, bf);
 
+            Array _Nbf = new Array[3];
+            _Nbf = Nbf.ToVector(MWArrayComponent.Real);
+            //double[] _Nbf2 = new double[3];   // test
+            //double[] _Nbf3 = new double[3];
+            //_Nbf2[0] = Nbf.ToScalarDouble();
+            //_Nbf3 = (double[])Nbf.ToVector(MWArrayComponent.Real);
+            //Console.WriteLine(_Nbf3[0].ToString());
+
+            double _ppv = new double();
+            _ppv = ppv.ToScalarDouble();
+
+            double _pv_max, _t_max, _pv_min, _t_min;
+            _pv_max = pv_max.ToScalarDouble();
+            _t_max = t_max.ToScalarDouble();
+            _pv_min = pv_min.ToScalarDouble();
+            _t_min = t_min.ToScalarDouble();
+
+            double _kv = new double();
+            _kv = kv.ToScalarDouble();
+
+            Array _pvifds_amp = new Array[3];
+            Array _pvifds_f = new Array[3];
+            _pvifds_amp = pvifds_amp.ToVector(MWArrayComponent.Real);
+            _pvifds_f = pvifds_f.ToVector(MWArrayComponent.Real);
+
+            double _tfv = new double();
+            _tfv = tfv.ToScalarDouble();
+
         }
     }
 }
