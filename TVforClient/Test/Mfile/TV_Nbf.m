@@ -18,8 +18,10 @@ Nbf = zeros(2, N);
 Nbf(1,:) = bf * (1:1:N);
 FD_bf = FD_f(2);        % scale of basic frequency of FD
 for i = 1:N
-    temp = round(Nbf(1,i)/FD_bf) * FD_bf;
-    Nbf(2,i) = FD_amp(find(FD_f == temp));    
+%     temp = round(Nbf(1,i)/FD_bf) * FD_bf;
+%     Nbf(2,i) = FD_amp(find(FD_f == temp));    
+    index = round(Nbf(1,i)/FD_bf) + 1;
+    Nbf(2,i) = FD_amp(index);
 end
 
 Nbf_amp = Nbf(2,:);

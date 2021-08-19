@@ -10,7 +10,7 @@ namespace TypicalValeExtraction
             SignalData singalData = new SignalData();
             singal.Sample(singalData.time, singalData.amplitude);
 
-            VibrationAnalysis va = new VibrationAnalysis(singalData.time, singalData.amplitude);
+            VibrationAnalysis va = new VibrationAnalysis(singalData.time, singalData.amplitude, 8092);
 
             double tfv = va.Analysis_tfv();
             Console.WriteLine(tfv.ToString());              // 通频值
@@ -31,19 +31,20 @@ namespace TypicalValeExtraction
             double ppv = va.Analysis_ppv();
             Console.WriteLine("ppv: " + ppv.ToString());     // 峰峰值
 
-            //va.Setbf(20);       // 设置基频值
-            //var Nbf = va.Analysis_Nbf();
-            //Console.WriteLine(Nbf.ToString());      // 1、2、3倍频值
+            // bug部分 注释掉
+            va.Setbf(20);       // 设置基频值
+            var Nbf = va.Analysis_Nbf();
+            Console.WriteLine(Nbf.ToString());      // 1、2、3倍频值
 
             VibrationAnalysis va2 = new VibrationAnalysis();
-            va2.SetData(singalData.time, singalData.amplitude);
+            va2.SetData(singalData.time, singalData.amplitude);     
 
             double tfv2 = va2.Analysis_tfv();
             Console.WriteLine("tfv: " + tfv2.ToString());
 
             SignalData signalData2 = new SignalData();
-            va2.SetData(signalData2.time, signalData2.amplitude);
-            tfv2 = tfv2 = va2.Analysis_tfv();
+            va2.SetData(signalData2.time, signalData2.amplitude);       // 分析完一组数据后，分析第二组数据
+            tfv2 = va2.Analysis_tfv();
             Console.WriteLine("tfv: " + tfv2.ToString());
         }
     }
