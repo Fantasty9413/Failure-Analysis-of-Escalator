@@ -6,7 +6,7 @@
 * matlab 命令行启动deploytool工具箱
 * 打包生成`.dll`文件等。[参考1](https://blog.csdn.net/yu_ncepu/article/details/87797953)
 
-* 将生成的`.dll`文件和`.ctf`（缺失ctf文件会报错）文件一并复制到`obj\debug`目录下。
+* 将生成的`.dll`文件和`.ctf`（缺失ctf文件会报错）文件一并复制到`bin\debug`目录下（也可放到`incluede\`）。（这是依赖项文件的根本路径，文件加入依赖项后自动被复制到此路径）
 * 将matlab工具箱中带的`MWArray.dll`文件复制到上述目录下。[参考2]([Matlab混合编程之NET组件（C#篇） - 程序员大本营 (pianshen.com)](https://www.pianshen.com/article/7641675654/))
 * 将上述两条中的`.dll`文件天添加引用。右键“依赖项” -> 添加现有项目 -> .... [参考1](https://blog.csdn.net/yu_ncepu/article/details/87797953)
 * 将`ctf`文件添加为嵌入资源（当前未添加，依旧可以运行，后续考虑添加增加速度）

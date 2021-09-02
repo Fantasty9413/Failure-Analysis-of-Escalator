@@ -54,5 +54,11 @@
 
 ​	测试结果如下：
 
+* test1:
+
 <img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_matlab.jpg" alt="TestResult_matlab" style="zoom:120%;" /><img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_client.jpg" alt="TestResult_client" style="zoom:88%;" />
+
+* test2:
+
+<img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_matlab_8192.jpg" alt="TestResult_matlab" style="zoom:120%;" /><img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_client_8192.jpg" alt="TestResult_client" style="zoom:88%;" />
 

@@ -7,7 +7,7 @@ public class Signal
 	protected double[] time;
 	protected double[] amplitude;
 
-	public Signal(int Length = 8092, int Fs = 10000)
+	public Signal(int Length = 8192, int Fs = 10000)
 	{
         this.Length = Length;
 		this.Fs = Fs;

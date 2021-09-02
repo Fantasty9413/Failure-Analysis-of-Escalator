@@ -12,7 +12,7 @@ namespace TypicalValeExtraction
 
             singal.Sample(singalData.time, singalData.amplitude);
 
-            VibrationAnalysis va = new VibrationAnalysis(singalData.time, singalData.amplitude, 8092);
+            VibrationAnalysis va = new VibrationAnalysis(singalData.time, singalData.amplitude, 8192);
 
             double tfv = va.Analysis_tfv();
             Console.WriteLine("tfv: " + tfv.ToString());              // 通频值

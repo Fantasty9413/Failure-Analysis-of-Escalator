@@ -14,7 +14,7 @@ signal.escalator = escalator(1);
 
 % signal value and parameter in time domain
 signal.TD.Fs = 10^4;        % sample frequency
-signal.TD.L = 8000;         % data length
+signal.TD.L = 8192;         % data length
 signal.TD.t = t(1:signal.TD.L)';
 signal.TD.data = data(1:signal.TD.L)';
 

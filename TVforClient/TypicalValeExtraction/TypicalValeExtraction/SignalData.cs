@@ -12,7 +12,7 @@ public class SignalData
 	protected int Length;
 	protected int Fs;
 
-	public SignalData(int Length = 8092, int Fs = 10000)
+	public SignalData(int Length = 8192, int Fs = 10000)
 	{
 		this.Length = Length;
 		this.Fs = Fs;
@@ -27,7 +27,7 @@ public class SignalData
 		}
 	}
 
-	public SignalData(string DataFileName, int Length = 8092, int Fs = 10000)
+	public SignalData(string DataFileName, int Length = 8192, int Fs = 10000)
 	{
 		this.Length = Length;
 		this.Fs = Fs;

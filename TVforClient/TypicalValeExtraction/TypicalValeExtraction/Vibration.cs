@@ -12,12 +12,12 @@ public class VibrationAnalysis: Signal
     private MWNumericArray FD_amp;
     private MWNumericArray bf;          // basic frequency for Nbf analysis
 
-    public VibrationAnalysis(int Length = 8092, int Fs = 10000):base(Length, Fs) 
+    public VibrationAnalysis(int Length = 8192, int Fs = 10000):base(Length, Fs) 
     {
         ftm = new FTM();
         bf = 20;
     }
-    public VibrationAnalysis(double[] time, double[] amplitude, int Length = 8092, int Fs = 10000):base(Length, Fs)
+    public VibrationAnalysis(double[] time, double[] amplitude, int Length = 8192, int Fs = 10000):base(Length, Fs)
     {
         Sample(time, amplitude);
         TD_t = new MWNumericArray(1, this.Length, this.time);
