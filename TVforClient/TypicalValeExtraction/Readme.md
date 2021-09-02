@@ -5,6 +5,7 @@
 * DLL库
   * MWArray.dll：用于matlab数值计算，辅助核心算法。
   * ComputationMethod.dll：特征值提取的计算方法。通过matlab将核心算法打包成.NET组件直接导入。
+  * ToolBox.dll：测试工具（导入测试数据）。
 * class类
   * Signal.cs：信号对象基类。
   * SignalData.cs：测试对象。用于生成模拟数据，测试算法与接口。
@@ -12,6 +13,7 @@
 * 其他
   * Program.cs：main函数，用于测试算法与框架。
   * ComputationMethod.ctf：移植产生的文件，具体作用 不清楚，应该和库调用有关，放在ComputationMethod.dll的目录下即可。
+  * ToolBox.ctf：同上。
 
 ## 2.接口
 
@@ -43,4 +45,14 @@
 * step2. 输入`time`、`amplitude`等数据参数
 
 * step3. 调用接口获取相应特征值的数据
+
+## 4.测试
+
+​	分别利用此demo和matlab进行特征值提取，对比二者结果，验证了此demo的可行性。
+
+​	测试数据路径：`\bin\Debug\netcoreapp3.1\data`
+
+​	测试结果如下：
+
+<img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_matlab.jpg" alt="TestResult_matlab" style="zoom:120%;" /><img src="E:\Code_master\Risk Assessment of Escalator\Figure\TVforClient\TestResult_client.jpg" alt="TestResult_client" style="zoom:88%;" />
 
