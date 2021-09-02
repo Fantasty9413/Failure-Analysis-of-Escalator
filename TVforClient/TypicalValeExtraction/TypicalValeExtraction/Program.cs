@@ -8,7 +8,7 @@ namespace TypicalValeExtraction
         {
             Signal singal = new Signal();
             //SignalData singalData = new SignalData();         // 随机生成的测试数据
-            SignalData singalData = new SignalData("test_data");     // 导入的真实数据
+            SignalData singalData = new SignalData("test_data.mat");     // 导入的真实数据
 
             singal.Sample(singalData.time, singalData.amplitude);
 

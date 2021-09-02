@@ -37,7 +37,7 @@ public class SignalData
 		TB tb = new TB();
 		MWNumericArray time, amplitude;
 		MWArray[] temp;
-		temp = tb.ImportData(2, Length);
+		temp = tb.ImportData(2, Length, DataFileName);
 		time = (MWNumericArray)temp[0];
 		amplitude = (MWNumericArray)temp[1];
 
