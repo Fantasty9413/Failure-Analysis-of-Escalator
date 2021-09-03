@@ -50,6 +50,8 @@
 
 ​	分别利用此demo和matlab进行特征值提取，对比二者结果，验证了此demo的可行性。
 
+​	测试数据导入接口：`[amplitude, time] = ImportData(DataLength, FileName)`
+
 ​	测试数据路径：`\bin\Debug\netcoreapp3.1\data`
 
 ​	测试结果如下：
