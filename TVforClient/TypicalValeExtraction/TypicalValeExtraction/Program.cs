@@ -15,7 +15,7 @@ namespace TypicalValeExtraction
             VibrationAnalysis va = new VibrationAnalysis(singalData.time, singalData.amplitude, 8192);
 
             double tfv = va.Analysis_tfv();
-            Console.WriteLine("tfv: " + tfv.ToString());              // 通频值
+            Console.WriteLine("tfv: " + tfv.ToString());            // 通频值
 
             var pvifds = va.Analysis_pvifds();
             Console.WriteLine("pvifds_amp: " + pvifds.Item1.GetValue(0) + " " + pvifds.Item1.GetValue(1) + " " + pvifds.Item1.GetValue(2));     // 幅值
@@ -49,6 +49,20 @@ namespace TypicalValeExtraction
             //va2.SetData(signalData2.time, signalData2.amplitude);       // 分析完一组数据后，分析第二组数据
             //tfv2 = va2.Analysis_tfv();
             //Console.WriteLine("tfv: " + tfv2.ToString());
+
+            // 基频部分测试
+            double[] sp = { 0.65, 18.99, 19, 71, 21, 38.1, 133.33, 31.75, 41, 19, 894.6, 100, 861.34 };
+            Escalator_BFA bfa = new Escalator_BFA();
+            bfa.Analysis(sp);
+            double bf = bfa.GetBf("f_motor");
+            Console.WriteLine("BF: " + bf.ToString());
+
+            // 按任意键退出
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("Press enter to close...");
+            Console.ReadLine();
         }
     }
 }
