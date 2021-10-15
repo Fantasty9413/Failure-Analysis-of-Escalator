@@ -91,7 +91,7 @@
 
   * 名称：`SP`——Structure Parameters，附体的结构参数。
 
-  * 形式：double array[13]
+  * 形式：double array[14]
 
   * 内容：
 
