@@ -10,7 +10,7 @@ cd (ccd)        %return
 
 % load test_data.mat;
 start_point = 1;
-end_point = 8000;
+end_point = 8192;
 L = end_point - start_point + 1;       % length of signal
 t = t(start_point:end_point)';
 y = data(start_point:end_point)';      % value of signal

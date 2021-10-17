@@ -96,6 +96,17 @@ m文件运行版本：**matlab2016b**
     * TypivalValueExtraction_v1.0\：TypivalValueExtraction lib的初始版本。
     * TypivalValueExtraction_v1.1\：修复了上一版本的Nbf方法的bug。
 
+### 6.SpectrumAnalysis
+
+​	用于谱分析的库。
+
+|                    函数                     |      功能      | 说明与备注 |
+| :-----------------------------------------: | :------------: | :--------: |
+| `[ FD_amp, FD_f ] = FreSpec( TD_amp, Fs )`  |  获取频谱数据  |            |
+| `[ PS_amp, PS_f ] = PowSpec( TD_amp, Fs )`  | 获取功率谱数据 |            |
+| `[ ES_amp, ES_f ] = EnveSpec( TD_amp, Fs )` | 获取包络谱数据 |            |
+| `[ CS_amp, CS_f ] = CepsSpec( TD_amp, Fs )` |  获取倒谱数据  |            |
+
 ## 2.实验进展与结果
 
 仿真结果的截图记录在*Figure*文件夹中。
