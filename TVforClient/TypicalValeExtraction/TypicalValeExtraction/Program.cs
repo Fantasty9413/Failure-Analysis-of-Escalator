@@ -56,6 +56,27 @@ namespace TypicalValeExtraction
             bfa.Analysis(sp);
             double bf = bfa.GetBf("f_motor");
             Console.WriteLine("BF: " + bf.ToString());
+            Console.WriteLine(" ");
+
+            // 谱分析
+            SpecAnalysis sa = new SpecAnalysis();
+            sa.SetData(singalData.time, singalData.amplitude);      // 输入待谱分析的数据值
+
+            string[] spec_type = {"time", "fre", "pow", "enve", "ceps" };       // 频谱类型
+            for (int i = 0; i < spec_type.Length; i++)
+            {
+                //var spec_result = sa.GetSpec(spec_type[i]);
+                var spec_result = sa.GetSpec(spec_type[i], 1, 250);             // 得结果数据
+                Console.WriteLine(" ");
+                Console.WriteLine(spec_type[i]);
+                Console.WriteLine("spec_y: " + " " + spec_result.Item1.GetValue(0) + " " + spec_result.Item1.GetValue(1) + " " + spec_result.Item1.GetValue(2));    // y轴数据
+                Console.WriteLine("spec_x: " + " " + spec_result.Item2.GetValue(0) + " " + spec_result.Item2.GetValue(1) + " " + spec_result.Item2.GetValue(2));    // x轴数据
+            }
+
+
+            //var spec = sa.GetSpec("time");
+            //Console.WriteLine("spec_y: " + " " + spec.Item1.GetValue(0) + " " + spec.Item1.GetValue(1) + " " + spec.Item1.GetValue(2));
+            //Console.WriteLine("spec_x: " + " " + spec.Item2.GetValue(0) + " " + spec.Item2.GetValue(1) + " " + spec.Item2.GetValue(2));
 
             // 按任意键退出
             Console.WriteLine(" ");
