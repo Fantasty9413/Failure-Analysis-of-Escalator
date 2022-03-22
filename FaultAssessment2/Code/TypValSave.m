@@ -28,7 +28,7 @@ xlswrite(filepath, WriteData, WriteSheet, WriteRange);
 sheetnum = 1;
 
 % 
-SenPos = 'motor';
+SenPos = 'signal';
 Path_Tab = strcat(SenPos, '_m', '.tab');
 Path_DEs = {};      % DE file path
 for i = 1:1:50
