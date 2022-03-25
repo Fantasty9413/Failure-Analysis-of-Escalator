@@ -35,6 +35,7 @@ plot(Spec_x, Spec_y);
 title('Spectrum of Frequency');
 xlabel('Hz');
 ylabel('Amplitude');
+xlim([1,100]);
 axis on, grid on;
 
 % envelope spectrum
@@ -57,7 +58,7 @@ axis on, grid on;
 Spec_y = CS_amp;
 Spec_x = CS_f;
 
-figure(3)
+figure(4)
 plot(Spec_x, Spec_y);
 title('Spectrum of Cesptrum');
 xlabel('Hz');
@@ -71,9 +72,10 @@ axis on, grid on;
 Spec_y = PS_amp;
 Spec_x = PS_f;
 
-figure(3)
+figure(5)
 plot(Spec_x, Spec_y);
 title('Spectrum of power');
 xlabel('Hz');
 ylabel('Amplitude');
+% xlim([1,100]);
 axis on, grid on;

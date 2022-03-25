@@ -50,13 +50,27 @@ namespace TypicalValeExtraction
             //tfv2 = va2.Analysis_tfv();
             //Console.WriteLine("tfv: " + tfv2.ToString());
 
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+
             // 基频部分测试
-            double[] sp = { 0.65, 18.99, 19, 71, 21, 38.1, 133.33, 31.75, 41, 19, 894.6, 100, 861.34 };
+            double[] sp = { 0.65, 18.99, 19, 71, 21, 38.1, 133.33, 31.75, 41, 19, 894.6, 100, 861.34 };     // 参数输入
             Escalator_BFA bfa = new Escalator_BFA();
             bfa.Analysis(sp);
-            double bf = bfa.GetBf("f_motor");
-            Console.WriteLine("BF: " + bf.ToString());
-            Console.WriteLine(" ");
+            //double bf = bfa.GetBf("f_motor");
+            //Console.WriteLine("BF: " + bf.ToString());
+            //Console.WriteLine(" ");
+            string[] bf_type = { "f_motor", "f_m", "f_d", "f_md", "f_hd", "f_r", "f_dp", "f_sp", "f_hp" };
+            for (int i = 0; i < bf_type.Length; i++)
+            {
+                double bf = bfa.GetBf(bf_type[i]);
+                Console.Write(bf_type[i] + ": " + bf.ToString() + "   ");
+                if ((i + 1) % 3 == 0)
+                {
+                    Console.Write("\n");
+                }
+            }
 
             // 谱分析
             SpecAnalysis sa = new SpecAnalysis();
