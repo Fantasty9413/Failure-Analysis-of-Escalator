@@ -69,48 +69,37 @@ Demo任务流程：数据读入、封装方法、算法库、封装方法
 
 * 项目整体展示
 
-  ```html
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA.png">
   </div>
-  ```
 
 * Demo部分方法封装接口展示
 
-   ```html
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E9%83%A8%E5%88%86%E5%B0%81%E8%A3%85%E6%8E%A5%E5%8F%A3%E5%B1%95%E7%A4%BA.png">
   </div>
-  ```
 
 * 前期算法移植测试对比
 
- ```html
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E7%AE%97%E6%B3%95%E7%A7%BB%E6%A4%8D%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94.png">
   </div>
- ```
 
 * 前期机器学习算法测试结果
 
- ```html
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95.png">
   </div>
- ```
 
 * Demo嵌入智慧扶梯系统软件联调测试-1
 
- ```html
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95.png">
   </div>
- ```
 
 * Demo嵌入智慧扶梯系统软件联调测试-2
- ```html
+
   <div align=center>
   <img src="https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/Image/%E8%81%94%E8%B0%83%E8%BF%90%E8%A1%8C.jpg">
   </div>
- ```
 
