@@ -22,6 +22,8 @@ WriteSheet = 1;
 xlswrite(filepath, WriteData, WriteSheet, WriteRange);
 WriteSheet = 2;
 xlswrite(filepath, WriteData, WriteSheet, WriteRange);
+WriteSheet = 3;
+xlswrite(filepath, WriteData, WriteSheet, WriteRange);
 
 %% 1.Motor part
 % motor part, save data to excel sheet1
@@ -76,6 +78,45 @@ end
 Path_WCs = {'WorkCondition_4', 'WorkCondition_5', 'WorkCondition_6', ...       % WorkCondition file path
             'WorkCondition_7', 'WorkCondition_8'};
 DataLabels = [4, 5, 6, 7, 8]; % label for data
+
+for index1 = 1:length(Path_WCs)    
+   for index2 = 1:length(Path_DEs)
+       % read data from tab file
+       tabfilepath = strcat('Data\', cell2mat(Path_WCs(index1)), '\', cell2mat(Path_DEs(index2)), '\',  Path_Tab);
+       [time, amp] = LoadDataFromTab(tabfilepath);      % load original data
+       
+       % extract typical value
+       tv = TypValExt(time, amp);
+       
+       % construct data set
+       datalabel = DataLabels(index1);
+       data = [tv, datalabel];
+       
+       % data save
+       filepath = ExcelFilePath;                  % excel file path
+       [~,~,raw] = xlsread(filepath, sheetnum);   % read excel
+       [row, ~] = size(raw);                      % find latest row to write data
+       WriteSheet = sheetnum;
+       WriteRow = row + 1;
+       WriteRange = strcat('A', num2str(WriteRow));
+       WriteData = data;
+       xlswrite(filepath, WriteData, WriteSheet, WriteRange);       
+   end
+end
+
+%% 3.Signal part
+% bolt part, save data to excel sheet3
+sheetnum = 3;
+
+% 
+SenPos = 'bolt';
+Path_Tab = strcat(SenPos, '_m', '.tab');
+Path_DEs = {};      % DE file path
+for i = 1:1:50
+    Path_DEs(i) = cellstr(strcat('co', num2str(i)));
+end
+Path_WCs = {'WorkCondition_9', 'WorkCondition_10', 'WorkCondition_11'};       % WorkCondition file path
+DataLabels = [9, 10, 11]; % label for data
 
 for index1 = 1:length(Path_WCs)    
    for index2 = 1:length(Path_DEs)

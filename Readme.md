@@ -63,7 +63,10 @@
 * 环境配置：公司原软件运行在工控机上Windows环境下，Demo要从现有的装有Matlab的环境中迁移过去（要**脱离Matlab软件**，公司使用Matlab会收费）。
   * 解决方法：使用免费的MCR（Matlab Complier Runtime）实现对核心算法的编译运行。
   * 最终运行环境环境：Windows + MCR + .Net + Demo
-* 调试：主要包括两块，1. 开发移植中的调试；2. 集成到原软件后的联调。在调试中解决移植Bug和环境错误，目的主要是为了将整套开发流程摸索清楚，方便后续项目和二次开发。
+* 测试：包括整套系统和开发细节两个方面。
+  * 系统方面：整套系统的**难点是跨平台的算法调用**，需要保证系统能成功调用算法，满足时间和精度的要求。否则需要重新更改方案。
+  * 开发方面：1. 开发移植中的调试；2. 集成到原软件后的联调。在调试中解决移植Bug和环境错误，目的主要是为了将整套开发流程摸索清楚，方便后续项目和二次开发。
+
 * 文档：撰写相应文档，记录整个项目和Demo的开发、移植、使用。
   * [项目笔记文档](https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/blob/main/ProgramNote.md)
   * [Demo文档](https://github.com/Fantasty9413/Failure-Analysis-of-Escalator/tree/main/TVforClient/TypicalValeExtraction/Readme.md)
