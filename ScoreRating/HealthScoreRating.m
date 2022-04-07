@@ -15,7 +15,7 @@ function [ Flag, Score ] = HealthScoreRating( Grades, Weight )
 %
 
 %% 0.checking input
-if(length(Grades)<=3 || length(Weight)<=3)
+if(length(Grades)<3 || length(Weight)<3)
    % input error
    Flag = -1;
    Score = 0; 
@@ -24,6 +24,7 @@ end
 
 %% 2.obtain score
 Score = sum((Grades(1:3) .* Weight(1:3))) / sum(Weight(1:3));
+Flag = 1;
 
 end
 
