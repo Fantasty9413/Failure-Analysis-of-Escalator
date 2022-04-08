@@ -43,13 +43,15 @@ end
 
 %% 2.load classfier model
 ModelSuffix = cell2mat(ModelList(Index));
-CM_Path = '../Train/trainedClassifier/';
+% CM_Path = '../Train/trainedClassifier/';
+CM_Path = './trainedClassifier/';
 CM_Name = strcat('trainedClassifier_', ModelSuffix);
 CM_Format = '.mat';
 Path = strcat(CM_Path, CM_Name, CM_Format);
 try
+    %#function ClassificationECOC
     load(Path);
-    eval(['ClassiferModel = ', CM_Name, ';']);     
+    eval(['ClassiferModel = ', CM_Name, ';']);
 catch
     % model loading failure, return flag = -2;
     Flag = -2;
@@ -127,5 +129,5 @@ end
 Flag = 1;
 Label = result;
 
-end
+end % function WorkConditionClassifier
 

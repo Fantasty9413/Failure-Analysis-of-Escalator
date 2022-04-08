@@ -17,8 +17,8 @@ OD_time_reducer = (1:1:length(OD_amplitude_reducer)) / Fs;
 OD_amplitude_bolt = dataAi5;
 OD_time_bolt = (1:1:length(OD_amplitude_bolt)) / Fs;
 
-OD_time_testdata = OD_time_bolt;
-OD_amplitude_testdata = OD_amplitude_bolt;
+OD_time_testdata = OD_time_reducer;
+OD_amplitude_testdata = OD_amplitude_reducer;
 
 time = [];
 amp = [];
@@ -29,7 +29,8 @@ for i = 1:1:N
 end
 
 %% 1.preprocessing
-n = 2;
+% n = 2;
+for n = 1:1:10
 tv = TypValExt(time(n, :), amp(n, :));
 
 TypVal = {'pv_max', 't_max', 'pv_min', 't_min', 'kv', 'ppv', 'tfv', 'Nbf_1',...     % typical value
@@ -59,5 +60,8 @@ T = table(pv_max, t_max, pv_min, t_min, kv, ppv, tfv, Nbf_1,...     % typical va
 %%
 tv = table2array(T);
 % tv = [tv, tv];
-modelname = 'bolt';
-[flag, label] = WorkConditionClassifier(tv, modelname);
+modelname = 'reducer';
+% [flag, label] = WorkConditionClassifier(tv, modelname);
+[flag, label] = WorkConditionClassifier_Motor(tv);
+label
+end
