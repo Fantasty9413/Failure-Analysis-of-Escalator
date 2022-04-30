@@ -1,5 +1,6 @@
 ﻿using System;
 using WorkConditionClassifierAlgorithm;
+using ScoreRatingAlgorithm;
 
 namespace TypicalValeExtraction
 {
@@ -98,8 +99,102 @@ namespace TypicalValeExtraction
             Console.WriteLine(tv.ToString());
 
             // 测试GetWorkConditionLabel
-            WorkConditionClassifier_motor wcc_motor = new WorkConditionClassifier_motor();
-            int Label = wcc_motor.GetWorkConditionLabel((double[])tv);
+            int Label = new int();
+            double[] tv_channel_1 = (double[])tv;
+            double[] tv_channel_2 = (double[])tv;
+            double[] tv_channel_5 = (double[])tv;
+
+            WorkConditionClassifier_motor wcc_motor = new WorkConditionClassifier_motor();                      // 获取motor部件的工况标签
+            Label = wcc_motor.GetWorkConditionLabel(tv_channel_1);
+
+            WorkConditionClassifier_reducer wcc_reducer = new WorkConditionClassifier_reducer();                // 获取reducer部件的工况标签
+            Label = wcc_reducer.GetWorkConditionLabel(tv_channel_2);
+
+            WorkConditionClassifier_bolt wcc_bolt = new WorkConditionClassifier_bolt();                         // 获取bolt部件的工况标签--使用单一模型
+            Label = wcc_bolt.GetWorkConditionLabel(tv_channel_5);
+
+            WorkConditionClassifier_complicated wcc_complicated = new WorkConditionClassifier_complicated();    // 获取bolt部件的工况标签--使用混合模型 
+            Label = wcc_complicated.GetWorkConditionLabel(tv_channel_2, tv_channel_5);
+
+            // 测试WorkConditionRating
+            double avggrade = new double();
+
+            WorkConditionRatingSystem wcrs = new WorkConditionRatingSystem_bolt();
+
+            WorkConditionRatingSystem_motor wcrs_motor = new WorkConditionRatingSystem_motor();
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);       // 模拟连续采集数据连续评分
+            avggrade = wcrs_motor.WorkConditionRating(2);
+            avggrade = wcrs_motor.WorkConditionRating(2);
+            avggrade = wcrs_motor.WorkConditionRating(3);
+            avggrade = wcrs_motor.WorkConditionRating(3);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(1);
+            avggrade = wcrs_motor.WorkConditionRating(3);
+            avggrade = wcrs_motor.WorkConditionRating(2);
+
+            WorkConditionRatingSystem_reducer wcrs_reducer = new WorkConditionRatingSystem_reducer();
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);       // 模拟连续采集数据连续评分
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 3);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 3);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 1);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 3);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 3);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+            avggrade = wcrs_reducer.WorkConditionRating(3 + 2);
+
+            wcrs = new WorkConditionRatingSystem_bolt();
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(9);
+            avggrade = wcrs.WorkConditionRating(10);
+            avggrade = wcrs.WorkConditionRating(11);
+
+            WorkConditionRatingSystem_bolt wcrs_bolt = new WorkConditionRatingSystem_bolt();
+            avggrade = wcrs_bolt.WorkConditionRating(9, 1);
+            avggrade = wcrs_bolt.WorkConditionRating(9, 1);
+            avggrade = wcrs_bolt.WorkConditionRating(10, 1);
+            avggrade = wcrs_bolt.WorkConditionRating(11, 1);
+            avggrade = wcrs_bolt.WorkConditionRating(11, 7);
+
+            // 测试WorkConditionRating
+            HealthScoreRatingSystem_v1 hsrs = new HealthScoreRatingSystem_v1();
+            int[] Labels = { 1, 4, 9 };
+            int healthscore = 0;
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+            healthscore = hsrs.GetHealthScore(Labels);
+
 
             // 按任意键退出
             Console.WriteLine(" ");
