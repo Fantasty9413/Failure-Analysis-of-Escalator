@@ -40,6 +40,7 @@ if(index < 0)
    return;
 end
 
+Flag = 1;
 Grade = Grades(index);
 
 end

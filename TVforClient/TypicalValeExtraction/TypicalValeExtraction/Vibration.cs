@@ -130,4 +130,45 @@ public class VibrationAnalysis: Signal
 
         return _Nbf;
     }
+
+    public Array GetTv()        // 一次性获取所有特征值,特征值按顺序排列
+    {
+        double[] tv = new double[16];
+
+        // 获取 pv
+        var pv = this.Analysis_pv();
+        tv.SetValue(pv.Item1, 0);
+        tv.SetValue(pv.Item2, 1);
+        tv.SetValue(pv.Item3, 2);
+        tv.SetValue(pv.Item4, 3);
+
+        // 获取 kv
+        double kv = this.Analysis_kv();
+        tv.SetValue(kv, 4);
+
+        // 获取 ppv
+        double ppv = this.Analysis_ppv();
+        tv.SetValue(kv, 5);
+
+        // 获取 tfv
+        double tfv = this.Analysis_tfv();
+        tv.SetValue(tfv, 6);
+
+        // 获取 Nbf
+        var Nbf = this.Analysis_Nbf();
+        tv.SetValue(Nbf.GetValue(0), 7);
+        tv.SetValue(Nbf.GetValue(1), 8);
+        tv.SetValue(Nbf.GetValue(2), 9);
+
+        // 获取 pvifds
+        var pvifds = this.Analysis_pvifds();
+        tv.SetValue(pvifds.Item1.GetValue(0), 10);
+        tv.SetValue(pvifds.Item1.GetValue(1), 11);
+        tv.SetValue(pvifds.Item1.GetValue(2), 12);
+        tv.SetValue(pvifds.Item2.GetValue(0), 13);
+        tv.SetValue(pvifds.Item2.GetValue(1), 14);
+        tv.SetValue(pvifds.Item2.GetValue(2), 15);
+
+        return tv;
+    }
 }

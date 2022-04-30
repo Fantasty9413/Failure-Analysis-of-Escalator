@@ -1,4 +1,5 @@
 ﻿using System;
+using WorkConditionClassifierAlgorithm;
 
 namespace TypicalValeExtraction
 {
@@ -91,6 +92,14 @@ namespace TypicalValeExtraction
             //var spec = sa.GetSpec("time");
             //Console.WriteLine("spec_y: " + " " + spec.Item1.GetValue(0) + " " + spec.Item1.GetValue(1) + " " + spec.Item1.GetValue(2));
             //Console.WriteLine("spec_x: " + " " + spec.Item2.GetValue(0) + " " + spec.Item2.GetValue(1) + " " + spec.Item2.GetValue(2));
+
+            // 测试GetTv
+            Array tv = va.GetTv();      // 一次性获取所有特征值
+            Console.WriteLine(tv.ToString());
+
+            // 测试GetWorkConditionLabel
+            WorkConditionClassifier_motor wcc_motor = new WorkConditionClassifier_motor();
+            int Label = wcc_motor.GetWorkConditionLabel((double[])tv);
 
             // 按任意键退出
             Console.WriteLine(" ");
