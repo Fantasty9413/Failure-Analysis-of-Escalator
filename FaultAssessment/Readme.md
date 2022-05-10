@@ -34,7 +34,7 @@
 
 所有方法测试的准确率见下图。选取部分高准确率的实验进行详细的结果分析。
 
-<img src="C:\Users\96919\AppData\Roaming\Typora\typora-user-images\image-20220106162925536.png" alt="image-20220106162925536" style="zoom:50%;" /><img src="C:\Users\96919\AppData\Roaming\Typora\typora-user-images\image-20220106162940623.png" alt="image-20220106162940623" style="zoom:50%;" />
+<img src="C:\Users\96919\AppData\Roaming\Typora\typora-user-images\image-20220106162925536.png" alt="image-20220106162925536" style="zoom: 200%;" /><img src="C:\Users\96919\AppData\Roaming\Typora\typora-user-images\image-20220106162940623.png" alt="image-20220106162940623" style="zoom: 200%;" />
 
 ##### 2.部分详细结果
 

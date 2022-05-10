@@ -68,7 +68,41 @@ a1 = MWNumericArray)(FD_amp)).ToVector(MWArrayComponent.Real);
 
   **采用的转换方法**：`data.ToVector`得到array或者[]数组。
 
+* 数据类型转换总结
 
+  * MWNumericArray转int：分3种情况。
+
+    * MWNumericArray转Array
+
+      ```c#
+      MWNumericArray _var;
+      Array var = _var.ToVector(MWArrayComponent.Real);
+      ```
+
+    * MWNumericArray转int[]
+
+    * MWNumericArray转int
+
+      ```
+      MWNumericArray _var;
+      int var = _var.ToScalarInteger();
+      ```
+
+  * MWArray[]转int：先将MWArray[]转成多个MWNumericArray；再将每个MWNumericArray转成int。
+
+    ```c#
+    MWArray[] _var;
+    // step1
+    MWNumericArray _temp_0 = (MWNumericArray)_var[0];
+    MWNumericArray _temp_1 = (MWNumericArray)_var[1];
+    ...
+    MWNumericArray _temp_n = (MWNumericArray)_var[n]; 
+    
+    // step2
+    调用MWNumericArray转int的方法
+    ```
+
+    
 
 ## TV function接口更改
 
